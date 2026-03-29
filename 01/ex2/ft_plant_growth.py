@@ -3,6 +3,7 @@ class Plant:
         self.name = name
         self.height = height
         self.day = day
+
     def show(self) -> None:
         print(f"{self.name}: {self.height}cm, {self.day} days old")
 
@@ -13,10 +14,11 @@ class Plant:
     def age(self) -> None:
         self.day += 1
 
+
 if __name__ == "__main__":
-    print("=== Garden Plant Growth ===") 
+    print("=== Garden Plant Growth ===")
     rose = Plant("Rose", 25, 30)
-    for i in range(1 , 8):
+    for i in range(1, 8):
         print(f"=== Day {i} ===")
         rose.grow()
         rose.age()

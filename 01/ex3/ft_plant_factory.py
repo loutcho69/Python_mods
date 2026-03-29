@@ -14,6 +14,7 @@ class Plant:
     def age(self) -> None:
         self.day += 1
 
+
 def ft_garden_data() -> None:
     plants = ["Rose", "Oak", "Cactus", "Sunflower", "Fern"]
     cms = [25, 200, 5, 80, 15]
@@ -21,11 +22,13 @@ def ft_garden_data() -> None:
     print("=== Plant Factory Output ===")
     for i in range(0, 5):
         current = Plant(plants[i], cms[i], days[i])
-        print("Created:", end= " ")
+        print("Created:", end=" ")
         current.show()
+
 
 def main():
     ft_garden_data()
+
 
 if __name__ == "__main__":
     main()

@@ -122,7 +122,7 @@ class Tree(Plant):
         shade_wide: float
     ) -> None:
         super().__init__(name, height, age)
-        self._stats = Tree.Stats()
+        self._stats: Tree.Stats = Tree.Stats()
         self._trunck_diameter = trunck
         self._shade_long = shade_long
         self._shade_wide = shade_wide
