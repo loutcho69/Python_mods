@@ -73,9 +73,16 @@ class Vegetable(Plant):
         print(f"Nutritional value: {self._nutritional_value}")
 
     def age(self, day: int) -> None:
-        self.day = day
-        print(f"[make the {self._name} grow and age for {self.day} days]")
+        self._age = day
         self._nutritional_value += day
+
+    def grow(self, height: int) -> None:
+        self._height = height
+
+    def growing(self, day: int, height: int) -> None:
+        self.age(day + self._age)
+        self.grow(height + self._height)
+        print(f"[make the {self._name} grow and age for {day} days]")
 
 
 def ft_plant_types() -> None:
@@ -92,7 +99,7 @@ def ft_plant_types() -> None:
     print("\n=== Vegetable")
     tomato = Vegetable("Tomato", 5, 10, "April", 0)
     tomato.show()
-    tomato.age(20)
+    tomato.growing(20, 25)
     tomato.show()
 
 

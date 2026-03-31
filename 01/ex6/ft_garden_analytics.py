@@ -108,7 +108,7 @@ class Tree(Plant):
             print(
                 f"Stats: {self._grow_calls} grow, "
                 f"{self._age_calls} age, "
-                f"{self._show_calls} show "
+                f"{self._show_calls} show, "
                 f"{self._shade_calls} shade"
             )
 
@@ -166,7 +166,6 @@ def main() -> None:
     oak = Tree("Oak", 200, 365, 5, 0, 0)
     oak.show()
     stat_display(oak)
-    print("[asking the oak to produce shade]")
     oak.produce_shade(200, 5)
     stat_display(oak)
 

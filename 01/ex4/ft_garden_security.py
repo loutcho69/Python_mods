@@ -1,8 +1,24 @@
 class Plant:
     def __init__(self, name: str, height: float, day: int) -> None:
         self._name = name
-        self._height = height
-        self._age = day
+        if height >= 0:
+            self._height = height
+        else:
+            print(
+                f"{self._name}: "
+                "Error, height can't be negative,"
+                " setting to deflaut value: '0'\n"
+            )
+            self._height = 0
+        if day >= 0:
+            self._age = day
+        else:
+            print(
+                f"{self._name}: "
+                "Error, age can't be negative,"
+                " setting to deflaut value: '0'\n"
+            )
+            self._age = 0
 
     def show(self) -> None:
         print(
@@ -41,8 +57,8 @@ class Plant:
 
 
 def ft_garden_security() -> None:
-    rose = Plant("Rose", 70, 5)
     print("=== Garden Security System ===")
+    rose = Plant("Rose", 2, 5)
     print("Plant created:", end=" ")
     rose.show()
     rose.set_height(25)
