@@ -35,8 +35,8 @@ def display_inventory(inventory: dict[str, int]) -> None:
     for name, qty in inventory.items():
         pct = round(qty / total * 100, 1)
         print(f"Item {name} represents {pct}%")
-    most = max(inventory, key=inventory.get)
-    least = min(inventory, key=inventory.get)
+    most = max(inventory, key=lambda k: inventory[k])
+    least = min(inventory, key=lambda k: inventory[k])
     print(f"Item most abundant: {most} with quantity {inventory[most]}")
     print(f"Item least abundant: {least} with quantity {inventory[least]}")
 

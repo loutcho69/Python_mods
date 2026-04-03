@@ -1,4 +1,6 @@
 import sys
+
+
 def script() -> None:
     print("=== Command Quest ===")
     print(f"Program name: {sys.argv[0]}")
@@ -10,6 +12,7 @@ def script() -> None:
     for i in range(1, argc):
         print(f"Arguments {i}: {sys.argv[i]}")
     print(f"Total arguments : {argc}")
+
 
 if __name__ == "__main__":
     script()
