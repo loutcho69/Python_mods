@@ -17,8 +17,8 @@ def parse_inventory(args: list[str]) -> dict[str, int]:
             continue
         try:
             qty = int(quantity)
-            if qty < 0:
-                print(f"Error - negative quantity for '{name}'")
+            if qty <= 0:
+                print(f"Error - negative or null quantity for '{name}'")
                 continue
             inventory[name] = qty
         except ValueError as e:
@@ -35,10 +35,15 @@ def display_inventory(inventory: dict[str, int]) -> None:
     for name, qty in inventory.items():
         pct = round(qty / total * 100, 1)
         print(f"Item {name} represents {pct}%")
-    most = max(inventory, key=lambda k: inventory[k])
-    least = min(inventory, key=lambda k: inventory[k])
-    print(f"Item most abundant: {most} with quantity {inventory[most]}")
-    print(f"Item least abundant: {least} with quantity {inventory[least]}")
+    most = max(inventory.values())
+    least = min(inventory.values())
+    for item in inventory:
+        if inventory[item] == most:
+            print(f"Item most abundant: {item} with quantity {most}")
+            break
+    for item in inventory:
+        if inventory[item] == least:
+            print(f"Item least abundant: {item} with quantity {least}")
 
 
 def main() -> None:

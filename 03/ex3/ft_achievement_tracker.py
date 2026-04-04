@@ -1,7 +1,7 @@
 import random
 
 
-def set_achivements(achievements) -> set:
+def set_achivements(achievements: set[str]) -> set[str]:
     nb = random.randint(1, len(achievements))
     return set(random.sample(list(achievements), nb))
 

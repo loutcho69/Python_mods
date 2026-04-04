@@ -2,14 +2,16 @@ import random
 import typing
 
 
-def gen_event() -> typing.Generator:
+def gen_event() -> typing.Generator[tuple[str, str], None, None]:
     players = ["bob", "charlie", "alice", "dylan"]
     actions = ["move", "climb", "use", "grab", "release", "swim", "sleep"]
     while True:
         yield (random.choice(players), random.choice(actions))
 
 
-def consume_event(lst: list) -> typing.Generator:
+def consume_event(
+    lst: list[tuple[str, str]]
+) -> typing.Generator[tuple[str, str], None, None]:
     while lst:
         pick = random.choice(lst)
         lst.remove(pick)
@@ -37,4 +39,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    display()
+    main()

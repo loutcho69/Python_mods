@@ -1,26 +1,27 @@
 import math
 
 
-def get_player_pos() -> tuple:
+def get_player_pos() -> tuple[float, float, float]:
     try:
         x, y, z = input("Enter new coordinates as floats in format 'x,y,z': ")\
             .split(",")
-        tmp = [x, y, z]
     except Exception:
         print("Invalid syntax")
-        get_player_pos()
+        return get_player_pos()
     pos = []
+    tmp = [x, y, z]
     for i in tmp:
         try:
             nb = float(i)
             pos.append(nb)
         except ValueError as e:
             print(f"Error on parameter {i}: {e}")
-            get_player_pos()
+            return get_player_pos()
     return (pos[0], pos[1], pos[2])
 
 
-def get_distance(pos1: tuple, pos2: tuple) -> float:
+def get_distance(pos1: tuple[float, float, float],
+                 pos2: tuple[float, float, float]) -> float:
     x1, y1, z1 = pos1
     x2, y2, z2 = pos2
     return math.sqrt((x2-x1) ** 2 + (y2-y1) ** 2 + (z2-z1) ** 2)
