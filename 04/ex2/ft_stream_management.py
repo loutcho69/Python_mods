@@ -1,5 +1,6 @@
 import sys
 
+
 def file_editor() -> None:
     try:
         txt = open(sys.argv[1], "r")
