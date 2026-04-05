@@ -14,7 +14,7 @@ def file_editor() -> None:
         print(f"\n---\nFile {sys.argv[1]} closed.\n")
         print("Transform data:\n---\n")
         new_name = input("Enter new file name (or empty): ")
-        if len(new_name) <= 1 :
+        if len(new_name) <= 1:
             sys.stdout.write("Empty file name. \nData not saved.")
             txt.close()
             return

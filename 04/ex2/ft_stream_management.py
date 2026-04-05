@@ -17,7 +17,7 @@ def file_editor() -> None:
         sys.stdout.flush()
         new_name = sys.stdin.readline()
         print(len(new_name))
-        if len(new_name) <= 1 :
+        if len(new_name) <= 1:
             sys.stdout.write("Empty file name. \nData not saved.")
             txt.close()
             return
