@@ -4,14 +4,13 @@ import sys
 def parsing() -> None:
     try:
         txt = open(sys.argv[1], "r")
-        print("=== Cyber Archives Recovery ===")
-        print(f"Accessing file: '{sys.argv[1]}'")
+        print(f"Accessing file: '{sys.argv[1]}'\n---\n")
         content = txt.read()
         print(content)
         txt.close()
-        print(f"File {sys.argv[1]} closed.")
+        print(f"\n---\nFile {sys.argv[1]} closed.")
     except FileNotFoundError as e:
-        print(f"{e}")
+        print(f"Error opening file '{sys.argv[1]}': {e}")
     except IndexError:
         print("Usage: ft_ancient_text.py <file>")
     except PermissionError as e:
@@ -19,6 +18,7 @@ def parsing() -> None:
 
 
 def main() -> None:
+    print("=== Cyber Archives Recovery ===")
     parsing()
 
 
