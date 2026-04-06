@@ -11,4 +11,5 @@ def main() -> None:
         print("Test import now - THIS WILL RAISE AN UNCAUGHT EXCEPTION")
         print(e)
 
+
 main()

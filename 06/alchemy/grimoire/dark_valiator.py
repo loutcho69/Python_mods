@@ -1,10 +1,7 @@
-from .grimoire import dark_spell_allowed_ingredients
-
 def validate_ingredients(ingredients: str) -> str:
-    from .grimoire import (dark_spell_allowed_ingredients)
+    from .dark_spellbook import dark_spell_allowed_ingredients
     spellbook = dark_spell_allowed_ingredients()
     for i in spellbook:
-        if i not in ingredients:
-            return f"{ingredients} - INVALID"
-    return f"{ingredients} - VALID"
-
+        if i in ingredients.lower():
+            return f'{ingredients} - VALID'
+    return f'{ingredients} - INVALID'
