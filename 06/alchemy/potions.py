@@ -1,6 +1,9 @@
-from alchemy import elements
-def healing_potion() -> str:
-    return (f"Healing potion brewed with’{create_earth()}’ and ’{create_air()}'")
+from elements import create_fire, create_water
+from .elements import create_air, create_earth
 
-def streght_potion() -> str:
-    return (f"Healing potion brewed with’{create_fire()}’ and ’{create_water()}'")
+
+def healing_potion() -> str:
+    return (f"Healing potion brewed with ’{create_earth()}’ and ’{create_air()}'")
+
+def strenght_potion() -> str:
+    return (f"Healing potion brewed with ’{create_fire()}’ and ’{create_water()}'")
