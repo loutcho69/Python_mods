@@ -3,7 +3,7 @@ class HealCapability(ABC):
     def __init__(self):
         super().__init__()
     @abstractmethod
-    def heal(self) -> None:
+    def heal(self) -> str:
         pass
     
 class TransformCapability(ABC):
