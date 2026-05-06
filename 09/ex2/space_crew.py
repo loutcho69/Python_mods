@@ -4,12 +4,12 @@ from typing import List
 from pydantic import BaseModel, Field, ValidationError, model_validator
 
 
-class Rank(str, Enum):
-    cadet = "cadet"
-    officer = "officer"
-    lieutenant = "lieutenant"
-    captain = "captain"
-    commander = "commander"
+class Rank(Enum):
+    CADET = "cadet"
+    OFFICER = "officer"
+    LIEUTENANT = "lieutenant"
+    CAPTAIN = "captain"
+    COMMANDER = "commander"
 
 
 class CrewMember(BaseModel):
@@ -37,7 +37,7 @@ class SpaceMission(BaseModel):
         if not self.mission_id.startswith("M"):
             raise ValueError("Mission ID must start with 'M'")
 
-        senior_ranks = {Rank.commander, Rank.captain}
+        senior_ranks = {Rank.COMMANDER, Rank.CAPTAIN}
         has_senior = any(m.rank in senior_ranks for m in self.crew)
         if not has_senior:
             raise ValueError(
@@ -80,7 +80,7 @@ def main() -> None:
             CrewMember(
                 member_id="CM001",
                 name="Sarah Connor",
-                rank=Rank.commander,
+                rank=Rank.COMMANDER,
                 age=45,
                 specialization="Mission Command",
                 years_experience=20,
@@ -88,7 +88,7 @@ def main() -> None:
             CrewMember(
                 member_id="CM002",
                 name="John Smith",
-                rank=Rank.lieutenant,
+                rank=Rank.LIEUTENANT,
                 age=34,
                 specialization="Navigation",
                 years_experience=10,
@@ -96,7 +96,7 @@ def main() -> None:
             CrewMember(
                 member_id="CM003",
                 name="Alice Johnson",
-                rank=Rank.officer,
+                rank=Rank.OFFICER,
                 age=29,
                 specialization="Engineering",
                 years_experience=6,
@@ -131,7 +131,7 @@ def main() -> None:
                 CrewMember(
                     member_id="CM010",
                     name="Bob Martin",
-                    rank=Rank.officer,
+                    rank=Rank.OFFICER,
                     age=30,
                     specialization="Piloting",
                     years_experience=3,
