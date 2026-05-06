@@ -34,11 +34,9 @@ class SpaceMission(BaseModel):
 
     @model_validator(mode="after")
     def validate_mission_rules(self) -> "SpaceMission":
-        # Mission ID must start with "M"
         if not self.mission_id.startswith("M"):
             raise ValueError("Mission ID must start with 'M'")
 
-        # Must have at least one Commander or Captain
         senior_ranks = {Rank.commander, Rank.captain}
         has_senior = any(m.rank in senior_ranks for m in self.crew)
         if not has_senior:
@@ -46,7 +44,6 @@ class SpaceMission(BaseModel):
                 "Mission must have at least one Commander or Captain"
             )
 
-        # Long missions need 50% experienced crew (5+ years)
         if self.duration_days > 365:
             experienced = sum(
                 1 for m in self.crew if m.years_experience >= 5
@@ -58,7 +55,6 @@ class SpaceMission(BaseModel):
                     "50% of crew with 5+ years experience"
                 )
 
-        # All crew members must be active
         inactive = [m.name for m in self.crew if not m.is_active]
         if inactive:
             raise ValueError(
@@ -73,7 +69,6 @@ def main() -> None:
     print("Space Mission Crew Validation")
     print("=" * 41)
 
-    # Valid mission
     mission = SpaceMission(
         mission_id="M2024_MARS",
         mission_name="Mars Colony Establishment",
@@ -124,7 +119,6 @@ def main() -> None:
         )
     print("=" * 41)
 
-    # Invalid mission — no Commander or Captain
     try:
         SpaceMission(
             mission_id="M2024_BAD",

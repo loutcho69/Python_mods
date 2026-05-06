@@ -18,7 +18,6 @@ def main() -> None:
     print("Space Station Data Validation")
     print("=" * 40)
 
-    # Valid station
     station = SpaceStation(
         station_id="ISS001",
         name="International Space Station",
